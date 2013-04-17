@@ -5,7 +5,16 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'mysql2'
+gem 'slim'
+gem 'carrierwave'
+gem 'fog'
+gem 'jquery-rails'
+gem 'thin'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'cancan'
 
 
 # Gems used only for assets and not required
@@ -16,11 +25,19 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
+  gem 'bootstrap-sass', '~> 2.3.1.0'
 
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :development do
+  gem "rspec-rails"
+  gem 'pry'
+end
+
+group :test do
+  gem "rspec"
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
