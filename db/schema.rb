@@ -11,7 +11,69 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417133509) do
+ActiveRecord::Schema.define(:version => 20130417134001) do
+
+  create_table "assets", :force => true do |t|
+    t.string   "file"
+    t.string   "type"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "assets", ["owner_type", "owner_id"], :name => "index_assets_on_owner_type_and_owner_id"
+
+  create_table "change_logs", :force => true do |t|
+    t.integer  "task_id"
+    t.text     "changes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "change_logs", ["task_id"], :name => "index_change_logs_on_task_id"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["task_id"], :name => "index_comments_on_task_id"
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "owner_id"
+    t.string   "logo"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "roles", ["project_id", "user_id"], :name => "index_roles_on_project_id_and_user_id"
+
+  create_table "tasks", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "status"
+    t.integer  "assignee_id"
+    t.integer  "project_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "tasks", ["assignee_id"], :name => "index_tasks_on_assignee_id"
+  add_index "tasks", ["project_id"], :name => "index_tasks_on_project_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
