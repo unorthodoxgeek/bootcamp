@@ -36,11 +36,17 @@ describe User do
 
     it "can manage tasks on a project it owns" do
       @ability.can?(:manage, Task.new(project_id: @project.id)).should be_true
+    end
+
+    it "can't manage task for a strange project" do
       @ability.can?(:manage, Task.new(project_id: @project2.id)).should be_false
     end
 
-    it "can manage tasks on a project it owns" do
+    it "can manage comments on a project it owns" do
       @ability.can?(:manage, Comment.new(task: Task.new(project_id: @project.id))).should be_true
+    end
+
+    it "can't manage comments for a strange project" do
       @ability.can?(:manage, Comment.new(task: Task.new(project_id: @project2.id))).should be_false
     end
   end
