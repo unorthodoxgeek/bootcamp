@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   has_many :projects, through: :roles
 
   def owns?(project)
-    role = Role.where(user_id: id, project_id: project.id).first
-    role && role.owner?
+    #role = Role.where(user_id: id, project_id: project.id).first
+    #role && role.owner?
+    project_ids.include?(project.id)
   end
 end
