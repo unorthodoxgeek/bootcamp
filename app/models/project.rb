@@ -11,6 +11,8 @@ class Project < ActiveRecord::Base
     Role.create(user_id: user.id, project_id: id, role: Role::OWNER) unless user.owns?(self)
   end
 
+  private
+  
   def assign_owner_role
     set_owner!(owner) if owner
   end
