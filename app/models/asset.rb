@@ -1,3 +1,3 @@
 class Asset < ActiveRecord::Base
-  # attr_accessible :title, :body
+  belongs_to :owner, polymorphic: true
 end

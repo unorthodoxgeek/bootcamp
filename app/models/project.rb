@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   attr_accessible :name, :description, :owner_id, :logo
 
   belongs_to :owner, class_name: "User"
+  has_many :tasks
 
   mount_uploader :logo, AvatarUploader
 
@@ -12,7 +13,7 @@ class Project < ActiveRecord::Base
   end
 
   private
-  
+
   def assign_owner_role
     set_owner!(owner) if owner
   end
