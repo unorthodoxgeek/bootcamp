@@ -1,0 +1,8 @@
+h1 = @project.name
+p = image_tag @project.logo.url
+p name
+p
+	= @project.name
+	= link_to " edit", edit_project_path(@project)
+p description
+p = @project.description

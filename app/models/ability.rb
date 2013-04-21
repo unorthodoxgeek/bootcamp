@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     can :manage, Project do |project|
-      user.owns? project
+      project.new_record? || user.owns?(project)
     end
 
     can :manage, Task do |task|

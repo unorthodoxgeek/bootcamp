@@ -17,6 +17,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'cancan'
 gem 'paper_trail'
+gem 'simple_form'
 
 
 # Gems used only for assets and not required
