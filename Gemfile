@@ -16,6 +16,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'cancan'
+gem 'paper_trail'
 
 
 # Gems used only for assets and not required
