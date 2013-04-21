@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
   describe "ownership" do
     before :each do
-      @user = User.create
+      @user = FactoryGirl.create(:user)
       @project = Project.create
     end
 
@@ -18,7 +18,7 @@ describe User do
 
   describe "abilities" do
     before :all do
-      @user = User.create
+      @user = FactoryGirl.create(:user)
       @project = Project.create
       @project2 = Project.create
       @ability = Ability.new(@user)
