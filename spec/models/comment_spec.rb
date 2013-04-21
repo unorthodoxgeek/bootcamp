@@ -9,4 +9,12 @@ describe Comment do
     task.reload.updated_at.should > 5.seconds.ago
   end
 
+  it "gets logged with paper trail on the task" do
+    task = Task.create
+    Comment.any_instance.stub(:user).and_return(double(name: "username"))
+    lambda {
+      comment = task.comments.create(comment: "foo")
+    }.should change(task.versions, :count).by(1)
+  end
+
 end

@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  has_paper_trail
+  
   attr_accessible :title, :description, :assignee_id, :project_id
 
   belongs_to :project, touch: true

@@ -6,6 +6,7 @@ We'll use a bunch of gems here.
 * Twitter's bootstrap - unLESSified - https://github.com/thomas-mcdonald/bootstrap-sass
 * Devise - user management - https://github.com/plataformatec/devise
 * CanCan - makes sure these users don't stick their noses in other users' business - https://github.com/ryanb/cancan
+* PaperTrail - does all the change logging for us, so we don't have to bother with it - https://github.com/airblade/paper_trail
 * pry - makes Ruby shell suck less - https://github.com/pry/pry
 * FactoryGirl - makes faking stuff out in specs a breeze
 * Faker - fakes strings for us
