@@ -23,7 +23,7 @@ describe ProjectsController do
     end
   end
 
-  describe "GET 'update'" do
+  describe "PUT 'update'" do
     it "returns http success" do
       get 'update'
       response.should be_success
@@ -37,16 +37,16 @@ describe ProjectsController do
     end
   end
 
-  describe "GET 'create'" do
+  describe "POST 'create'" do
     it "returns http success" do
-      get 'create'
+      post 'create'
       response.should be_success
     end
   end
 
-  describe "GET 'destroy'" do
+  describe "DELETE 'destroy'" do
     it "returns http success" do
-      get 'destroy'
+      delete 'destroy'
       response.should be_success
     end
   end
